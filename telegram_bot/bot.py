@@ -4,9 +4,9 @@ from pymongo import MongoClient
 from datetime import datetime
 
 # Setup Telegram Client
-api_id = 'your_api_id'
-api_hash = 'your_api_hash'
-bot_token = 'your_bot_token'
+api_id = '23581804'
+api_hash = '49fd7d9ac9aecb487c343a0c1156f8d2'
+bot_token = '7952483289:AAHNuKyFv_OJF8fKQoHGVKmrgkURgRq7Gdc'
 client = TelegramClient('session_name', api_id, api_hash)
 
 # Setup MongoDB connection
