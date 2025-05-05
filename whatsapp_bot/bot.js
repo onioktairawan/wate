@@ -9,7 +9,7 @@ const db = mongoClient.db("message_db");
 const messagesCollection = db.collection("messages");
 
 // WhatsApp Client Setup
-const { state, saveCreds } = useSingleFileAuthState('./auth_info.json');
+const { state, saveCreds } = useSingleFileAuthState('./auth_info.json'); // Menggunakan single-file auth state
 const client = makeWASocket({
     printQRInTerminal: true,
     auth: state
@@ -19,7 +19,6 @@ const client = makeWASocket({
 client.ev.on('messages.upsert', async (msg) => {
     const message = msg.messages[0];
     if (!message.key.fromMe) {
-        // Process the message (e.g., forward it to Telegram or do other tasks)
         console.log(message);
     }
 });
