@@ -1,4 +1,4 @@
-const { makeWASocket, useMultiFileAuthState } = require('@adiwajshing/baileys');
+const { makeWASocket, useSingleFileAuthState, AnyMessageContent, proto } = require('@adiwajshing/baileys');
 const dotenv = require('dotenv');
 dotenv.config();
 
@@ -9,10 +9,11 @@ const db = mongoClient.db("message_db");
 const messagesCollection = db.collection("messages");
 
 // WhatsApp Client Setup
-const { state, saveCreds } = useMultiFileAuthState('./auth_info'); // Ubah ke useMultiFileAuthState jika ingin menyimpan data di beberapa file
+const { state, saveCreds } = useSingleFileAuthState('./auth_info.json'); // Pastikan path sesuai
 const client = makeWASocket({
     printQRInTerminal: true,
-    auth: state
+    auth: state,
+    browser: ['Baileys', 'Safari', '1.0']
 });
 
 // Listen for new messages
